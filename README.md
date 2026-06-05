@@ -50,15 +50,11 @@ Building this project provided a great opportunity to refine my frontend enginee
 
 ---
 
-## 🚀 Getting Started
+## 📬 Contact
 
-To get a local copy up and running, follow these simple steps:
+**Elyas Forghani** 
+* **GitHub:** [@elyasforghani](https://github.com/elyasforghani)
+* **LinkedIn:** [https://www.linkedin.com/in/alireza-forghani-b4746b263/](https://www.linkedin.com/in/alireza-forghani-b4746b263/)
+* **Email:** [elyasfgidev@gmail.com](mailto:elyasfgidev@gmail.com)
 
-### Prerequisites
-Make sure you have Node.js installed if you plan on modifying the Tailwind configuration.
-
-### Installation
-
-1. Clone the repository:
-```sh
-   git clone [https://github.com/elyasforghani/hotelabbasi-tailwindproject.git](https://github.com/elyasforghani/hotelabbasi-tailwindproject.git)
+**Project Link:** [https://github.com/elyasforghani/hotelabbasi-tailwindproject](https://github.com/elyasforghani/hotelabbasi-tailwindproject)
