@@ -1,0 +1,304 @@
+@import "tailwindcss";
+
+@theme {
+ 
+  --color-gold-50: #fdfbf7;
+  --color-gold-100: #fbf4ea;
+  --color-gold-500: #c5a880;
+  --color-gold-600: #b0926a;
+  --color-gold-700: #8e714b;
+  
+  --color-emerald-900: #064e3b;
+  --color-emerald-950: #022c22;
+  
+  --font-sans: "vazirmatn", sans-serif;
+}
+@layer components {
+  .row {
+    @apply flex flex-wrap w-full;
+  }
+  .btn-persian {
+    @apply px-6 py-2;
+  }
+  .imf {
+    @apply shadow-sky-500 border;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.39);
+    border-radius: 166px 166px 0px 0px;
+  }
+  .megamenu{
+    @apply opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out  flex absolute   md:w-[170%] top-[50px]  lg:right-[-380px]  lg:w-[175%] justify-between rounded-3xl border border-emerald-800/20 backdrop-blur-[10px] bg-amber-50/40 p-6 z-50 shadow-2xl 
+  }
+  .megaindex{
+    @apply  flex-col justify-center items-center text-center text-emerald-950  **:h-[45px] **:hover:scale-[1.4] **:hover:duration-400 *:duration-400 **:hover:text-teal-50
+  } 
+
+  
+}
+
+@font-face {
+  font-family: "vazirmatn"; 
+  src: url("../fonts/Vazirmatn-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900; 
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+    :root {
+    --color-gold-50: #fdfbf7;
+    --color-gold-100: #fbf4ea;
+    --color-gold-500: #c5a880; /* طلایی اختصاصی عباسی */
+    --color-gold-600: #b0926a;
+    --color-gold-700: #8e714b;
+    
+    --color-emerald-900: #064e3b; /* سبز عمارت صفوی */
+    --color-emerald-950: #022c22;
+  }
+  body {
+    @apply bg-gold-50 text-neutral-800 antialiased;
+  }
+  a{
+    @apply text-center
+  }
+}
+/* ۴. نگاشت (Map) متغیرها به کلاس‌های استاندارد تلویند بدون نیاز به فایل JS */
+@layer utilities {
+  /* کلاس‌های رنگ پس‌زمینه (Background) */
+  .bg-gold-50 { background-color: var(--color-gold-50); }
+  .bg-gold-100 { background-color: var(--color-gold-100); }
+  .bg-gold-500 { background-color: var(--color-gold-500); }
+  .bg-gold-600 { background-color: var(--color-gold-600); }
+  .bg-gold-700 { background-color: var(--color-gold-700); }
+  .bg-emerald-900 { background-color: var(--color-emerald-900); }
+  .bg-emerald-950 { background-color: var(--color-emerald-950); }
+
+  /* کلاس‌های رنگ متن (Text Colors) */
+  .text-gold-50 { color: var(--color-gold-50); }
+  .text-gold-100 { color: var(--color-gold-100); }
+  .text-gold-500 { color: var(--color-gold-500); }
+  .text-emerald-950 { color: var(--color-emerald-950); }
+
+  /* کلاس‌های رنگ بوردر (Border Colors با احتساب شفافیت‌های بکار رفته در قالب شما) */
+  .border-gold-500\/20 { border-color: rgba(197, 168, 128, 0.2); }
+  .border-gold-500\/30 { border-color: rgba(197, 168, 128, 0.3); }
+  .border-gold-500\/40 { border-color: rgba(197, 168, 128, 0.4); }
+    .befupper {
+    @apply before:content-[''] before:w-full before:bg-amber-700 before:h-[1px] before:absolute before:-top-2.5 before:opacity-0 before:duration-300;
+  }
+  .befupper1 {
+    @apply before:content-[''] before:w-full before:bg-amber-700 before:h-[1px] before:absolute before:-top-2.5 before:opacity-100;
+  }
+  .undertxt {
+    @apply after:content-[''] after:w-[40%] after:bg-gray-600 after:h-[1px] after:absolute after:-bottom-2.5;
+  }
+  .backhover{
+    @apply hover:rounded-full hover:bg-violet-600 hover:backdrop-blur-2xl duration-300 hover:text-amber-50
+  }
+  
+}
+.myHotelCarousel {
+  width: 100%;
+  padding: 60px 0;
+  background-color: #f7f5f0; /* Soft cream background like the screenshot */
+  direction: rtl; /* Sets up correct Persian text flow */
+}
+
+/* Slide Setup */
+.myHotelCarousel .swiper-slide {
+  position: relative;
+  width: 80%; /* Controls how wide the middle card is vs the side cards */
+  height: 450px;
+  overflow: visible; /* Allows the text box to pop out if needed */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* Slide Images */
+.myHotelCarousel .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* --- THE TEXT OVERLAY ANIMATION --- */
+.myHotelCarousel .text-card-overlay {
+  position: absolute;
+  bottom: -30px; /* Positioned slightly overlapping the bottom edge */
+  width: 80%;
+  background: #ffffff;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+  
+  /* Initial hidden state */
+  opacity: 0;
+  transform: translateY(40px); 
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
+}
+
+/* Triggered when the slide becomes the centered/active item */
+.myHotelCarousel .swiper-slide-active .text-card-overlay {
+  opacity: 1;
+  transform: translateY(0); /* Slides up to its original spot */
+}
+
+/* Typography styling matching your image */
+.text-card-overlay h3 {
+  font-size: 1.4rem;
+  color: #000;
+  margin-bottom: 15px;
+}
+
+.text-card-overlay p {
+  font-size: 0.95rem;
+  color: #c29d53; /* Golden/bronze text color */
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.more-link {
+  display: inline-block;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+ .footer1 {
+            
+           
+            margin: 50px auto 20px;
+            padding: 40px 20px;
+            
+            /* Matches your #sec1 theme */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            /* Safari support */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        }
+
+      
+        .footer1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            /* Thickness of your laser line */
+            /* This ensures a premium, hardware-accelerated movement */
+            will-change: left, top, background;
+            animation: glowing-line 4s linear infinite;
+        }
+
+       /* ۱. ایجاد انیمیشن حرکت لیزر به دور بوردها */
+@keyframes glowing-line {
+    0% {
+        top: 0; left: -20%; width: 20%; height: 2px;
+        background: linear-gradient(90deg, transparent, var(--color-gold-500), transparent);
+    }
+    25% { top: 0; left: 100%; width: 20%; height: 2px; }
+    26% {
+        left: calc(100% - 2px); top: -20%; width: 2px; height: 20%;
+        background: linear-gradient(180deg, transparent, #0369a1, transparent);
+    }
+    50% { left: calc(100% - 2px); top: 100%; width: 2px; height: 20%; }
+    51% {
+        top: calc(100% - 2px); left: 100%; width: 20%; height: 2px;
+        background: linear-gradient(90deg, transparent, var(--color-gold-500), transparent);
+    }
+    75% { top: calc(100% - 2px); left: -20%; width: 20%; height: 2px; }
+    76% { left: 0; top: 100%; width: 2px; height: 20%;
+        background: linear-gradient(180deg, transparent, #0369a1, transparent);
+    }
+    100% { left: 0; top: -20%; width: 2px; height: 20%; }
+}
+
+/* ۲. کلاس کمکی برای باکسی که می‌خواهید لیزر دور آن بچرخد */
+.laser-box-container {
+    position: relative;
+    overflow: hidden; /* بسیار مهم برای پنهان کردن خط در خارج از مرز باکس */
+}
+
+.laser-beam {
+    position: absolute;
+    pointer-events: none;
+    animation: glowing-line 6s linear infinite;
+}
+        /* Logo styling */
+        .footer1 .logo img {
+            width: 100px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+        }
+
+        /* Flexbox List Layout */
+        .footer1 .link ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* Social Buttons - Initial State */
+        .footer1 .link ul li a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            color: #e0e0e0;
+            text-decoration: none;
+            text-transform: capitalize;
+            font-weight: 600;
+            letter-spacing: 1px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            /* Cubic-bezier for a snappy, premium transition */
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* SVG Icons */
+        .footer1 .link ul li a svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+            transition: transform 0.3s ease;
+        }
+
+        /* Advanced Hover Effects - Neon Glow */
+        .footer1 .link ul li a:hover {
+            background: rgba(0, 0, 255, 0.1);
+            /* Subtle blue tint */
+            border-color: rgba(0, 0, 255, 0.4);
+            color: #fff;
+            /* Outer glow and inner shadow for depth */
+            box-shadow: 0 0 20px rgba(0, 255, 217, 0.3), inset 0 0 10px rgba(0, 0, 255, 0.1);
+            transform: translateY(-4px);
+            /* Lifts the button up */
+        }
+
+        /* Make the icon pop on hover */
+        .footer1 .link ul li a:hover svg {
+            transform: scale(1.2);
+        }
+
+
+        .footer1 p {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
